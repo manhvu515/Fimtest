@@ -8,41 +8,54 @@ using WebApplication1.Entities;
 namespace WebApplication1.Modules.MVendor
 {
     public interface IVendorService : IScopedService {
-        int Count(VendorEntity VendorEntity, VendorSearchEntity VendorSearchEntity);
-        List<VendorEntity> Get(VendorEntity VendorEntity, VendorSearchEntity VendorSearchEntity);
-        VendorEntity Get(VendorEntity EmployeeEntity, Guid CategoryId);
-        VendorEntity Create(VendorEntity VendorEntity, VendorEntity CategVendorEntityoryEntity);
-        VendorEntity Update(VendorEntity VendorEntity, Guid CategoryId);
-        bool Delete(VendorEntity VendorEntity, Guid VendorId);
+        int Count(VendorSearchEntity VendorSearchEntity);
+        List<VendorEntity> Get( VendorSearchEntity VendorSearchEntity);
+        VendorEntity Get(Guid VendorId);
+        VendorEntity Create(VendorEntity VendorEntity);
+        VendorEntity Update(VendorEntity VendorEntity, Guid VendorId);
+        bool Delete(Guid VendorId);
     }
     public class VendorService : IVendorService
     {
-        public int Count(VendorEntity VendorEntity, VendorSearchEntity VendorSearchEntity)
+        private IVendorRepository vendorRepository;
+        private IVendorValidator vendorValidator;
+        public VendorService(IVendorRepository vendorRepository, IVendorValidator vendorValidator)
+        {
+            this.vendorRepository = vendorRepository;
+            this.vendorValidator = vendorValidator;
+        }
+
+        public int Count(VendorSearchEntity VendorSearchEntity)
+        {
+            return vendorRepository.Count(VendorSearchEntity);
+        }
+
+
+        public VendorEntity Create(VendorEntity VendorEntity)
         {
             throw new NotImplementedException();
         }
 
-        public VendorEntity Create(VendorEntity VendorEntity, VendorEntity CategVendorEntityoryEntity)
+        public bool Delete( Guid VendorId)
         {
-            throw new NotImplementedException();
+            return vendorRepository.Delete(VendorId);
         }
 
-        public bool Delete(VendorEntity VendorEntity, Guid VendorId)
+        public List<VendorEntity> Get(VendorSearchEntity VendorSearchEntity)
         {
-            throw new NotImplementedException();
+            List<Vendor> vendors = vendorRepository.List(VendorSearchEntity);
+            return vendors.Select(u => new VendorEntity(u)).ToList();
         }
 
-        public List<VendorEntity> Get(VendorEntity VendorEntity, VendorSearchEntity VendorSearchEntity)
+        public VendorEntity Get(Guid VendorId)
         {
-            throw new NotImplementedException();
+            Vendor Vendor  = vendorRepository.Get(VendorId);
+            if (Vendor == null) return null;
+            VendorEntity VendorEntity = new VendorEntity(Vendor);
+            return VendorEntity;
         }
 
-        public VendorEntity Get(VendorEntity EmployeeEntity, Guid CategoryId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public VendorEntity Update(VendorEntity VendorEntity, Guid CategoryId)
+        public VendorEntity Update(VendorEntity VendorEntity, Guid VendorId)
         {
             throw new NotImplementedException();
         }

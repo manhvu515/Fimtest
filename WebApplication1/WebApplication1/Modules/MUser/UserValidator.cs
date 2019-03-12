@@ -5,11 +5,15 @@ using System.Web;
 
 namespace WebApplication1.Modules.MUser
 {
-    public class UserValidator
+    public interface IUserValidator : IScopedService
+    {
+
+    }
+    public class UserValidator : CommonValidator, IUserValidator
     {
         public UserValidator()
         {
-
+           
         }
     }
 }

@@ -6,12 +6,12 @@ using System.Web;
 
 namespace WebApplication1.Models
 {
-    public partial class category : Base
+    public partial class Category : Base
     {
-        internal override string _Id => this.id.ToString();
-        public category() : base() { }
+        internal override string _Id => this.Id.ToString();
+        public Category() : base() { }
 
-        public category(categoryEntity categoryEntity) : base(categoryEntity)
+        public Category(CategoryEntity CategoryEntity) : base(CategoryEntity)
         {
         }
     }

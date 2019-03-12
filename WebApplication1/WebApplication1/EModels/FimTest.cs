@@ -6,21 +6,22 @@ using System.Data.Entity;
 
 namespace WebApplication1.Models
 {
-    public partial class Fimtes
+    public partial class FimTest
     {
-        public Fimtes(string str)
-              : base(str)
+        public FimTest(string str)
+                 : base(str)
         {
         }
     }
-    public class DbReadContext : Fimtes
+    public class DbReadContext : FimTest
     {
         public DbReadContext() : base("name=ReadModel")
         {
             Database.SetInitializer<DbReadContext>(null);
         }
     }
-    public class DbWriteContext : Fimtes
+
+    public class DbWriteContext : FimTest
     {
         public DbWriteContext() : base("name=WriteModel")
         {

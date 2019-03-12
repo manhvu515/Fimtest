@@ -9,39 +9,47 @@ namespace WebApplication1.Models
     [Table("Vendor")]
     public partial class Vendor
     {
-        
-        public Guid id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Vendor()
+        {
+            QuotationHeaders = new HashSet<QuotationHeader>();
+        }
+
+        public Guid Id { get; set; }
 
         [StringLength(100)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [StringLength(100)]
-        public string taxcode { get; set; }
+        public string Address { get; set; }
 
         [StringLength(100)]
-        public string owner { get; set; }
+        public string TaxCode { get; set; }
 
         [StringLength(100)]
-        public string phone { get; set; }
+        public string Owner { get; set; }
 
         [StringLength(100)]
-        public string email { get; set; }
+        public string Phone { get; set; }
 
         [StringLength(100)]
-        public string website { get; set; }
+        public string Email { get; set; }
 
         [StringLength(100)]
-        public string bankaccount { get; set; }
+        public string Website { get; set; }
 
         [StringLength(100)]
-        public string bank { get; set; }
+        public string BankAccount { get; set; }
 
         [StringLength(100)]
-        public string bankBranch { get; set; }
+        public string Bank { get; set; }
 
-        public bool? islock { get; set; }
+        [StringLength(100)]
+        public string BankBranch { get; set; }
 
-        public bool? approved { get; set; }
+        public bool? IsLock { get; set; }
+
+        public bool? Approved { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<QuotationHeader> QuotationHeaders { get; set; }

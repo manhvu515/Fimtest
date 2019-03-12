@@ -8,7 +8,7 @@ namespace WebApplication1.Models
 {
     public partial class Quotation : Base
     {
-        internal override string _Id => this.id.ToString();
+        internal override string _Id => this.Id.ToString();
         public Quotation() : base() { }
 
         public Quotation(QuotationEntity QuotationEntity) : base(QuotationEntity)

@@ -6,12 +6,12 @@ using WebApplication1.Entities;
 
 namespace WebApplication1.Models
 {
-    public partial class QuotationHeader : Base
+    public partial class RFQ : Base
     {
         internal override string _Id => this.Id.ToString();
-        public QuotationHeader() : base() { }
+        public RFQ() : base() { }
 
-        public QuotationHeader(QuotationHeaderEntity QuotationHeaderEntity) : base(QuotationHeaderEntity)
+        public RFQ(RFQEntity RFQEntity) : base(RFQEntity)
         {
         }
     }

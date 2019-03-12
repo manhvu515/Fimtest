@@ -12,7 +12,6 @@ namespace WebApplication1.Modules.MVendor
         int Count(VendorSearchEntity VendorRepository);
         List<Vendor> List(VendorSearchEntity VendorSearchEntity);
         Vendor Get(Guid Id);
-        Vendor Find(Guid Id);
         bool Add(Vendor Vendor);
         bool Update(Vendor Vendor);
         bool Delete(Guid Id);
@@ -27,8 +26,12 @@ namespace WebApplication1.Modules.MVendor
 
         public bool Add(Vendor Vendor)
         {
-            Vendor.id = Guid.NewGuid();
-           // writeContext.
+
+            if (Vendor.id == null || Vendor.id == Guid.Empty)
+            {
+                Vendor.id = Guid.NewGuid();
+            }
+            writeContext.BulkMerge(new List<Vendor> { Vendor });
             return true;
         }
 
@@ -46,11 +49,6 @@ namespace WebApplication1.Modules.MVendor
             readContext.Vendors.Remove(vendor);
             readContext.SaveChanges();
             return true;
-        }
-
-        public Vendor Find(Guid Id)
-        {
-            throw new NotImplementedException();
         }
 
         public Vendor Get(Guid Id)

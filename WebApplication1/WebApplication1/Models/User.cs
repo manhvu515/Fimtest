@@ -8,38 +8,37 @@ namespace WebApplication1.Models
 
     public partial class User
     {
-        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public User()
+        {
+            RFQs = new HashSet<RFQ>();
+        }
 
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
         [StringLength(100)]
-        public string display { get; set; }
+        public string Display { get; set; }
 
         [StringLength(100)]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [StringLength(100)]
         public string ADGroupEntities { get; set; }
 
-        public Guid oraganizationid { get; set; }
-
         [StringLength(100)]
         public string RoleEntities { get; set; }
+
+        public Guid? Oraganizationid { get; set; }
 
         [StringLength(100)]
         public string Toke { get; set; }
 
         [StringLength(100)]
-        public string version { get; set; }
+        public string Version { get; set; }
 
-        public bool? isdeleted { get; set; }
-
-        public virtual Organization Organization { get; set; }
+        public bool? Isdeleted { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RFQuotation> RFQuotations { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RFQuotation> RFQuotations1 { get; set; }
+        public virtual ICollection<RFQ> RFQs { get; set; }
     }
 }

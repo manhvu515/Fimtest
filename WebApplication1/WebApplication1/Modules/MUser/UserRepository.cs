@@ -24,8 +24,10 @@ namespace WebApplication1.Modules.MUser
         }
         public bool Add(User User)
         {
-            User.id = Guid.NewGuid();
-            // writeContext.
+            if (User.id == null || User.id == Guid.Empty) {
+                User.id = Guid.NewGuid();
+            }
+            writeContext.BulkMerge(new List<User> { User });
             return true;
         }
 

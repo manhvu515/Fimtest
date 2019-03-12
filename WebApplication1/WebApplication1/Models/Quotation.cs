@@ -9,18 +9,32 @@ namespace WebApplication1.Models
     [Table("Quotation")]
     public partial class Quotation
     {
-        public Guid id { get; set; }
+        public Guid Id { get; set; }
 
-        public Guid idRFQuotationDetail { get; set; }
+        public Guid? QuotationHeaderId { get; set; }
 
-        public Guid idQuotationHeader { get; set; }
+        public Guid? RFQDetailId { get; set; }
 
-        public Guid idproduct { get; set; }
+        public double? UnitPrice { get; set; }
 
-        public virtual product product { get; set; }
+        public double? Price { get; set; }
+
+        [StringLength(100)]
+        public string TaxType { get; set; }
+
+        [StringLength(100)]
+        public string TaxAmount { get; set; }
+
+        public double? Total { get; set; }
+
+        [StringLength(100)]
+        public string Note { get; set; }
+
+        [StringLength(100)]
+        public string NoteForVendor { get; set; }
 
         public virtual QuotationHeader QuotationHeader { get; set; }
 
-        public virtual RFQuotationDetail RFQuotationDetail { get; set; }
+        public virtual RFQDetail RFQDetail { get; set; }
     }
 }

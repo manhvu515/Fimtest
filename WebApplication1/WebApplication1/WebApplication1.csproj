@@ -173,7 +173,9 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Common.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
+    <Compile Include="Controllers\VendorsController.cs" />
     <Compile Include="EModels\category.cs" />
     <Compile Include="EModels\Fimtes.cs" />
     <Compile Include="EModels\Organization.cs" />
@@ -205,8 +207,10 @@
     <Compile Include="Models\RFQuotation.cs" />
     <Compile Include="Models\RFQuotationDetail.cs" />
     <Compile Include="Models\sysdiagram.cs" />
+    <Compile Include="Models\testContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vendor.cs" />
+    <Compile Include="Models\VendorContext.cs" />
     <Compile Include="Modules\CommonRepository.cs" />
     <Compile Include="Modules\CommonService.cs" />
     <Compile Include="Modules\CommonValidator.cs" />
@@ -231,6 +235,11 @@
     <Compile Include="Modules\MVendor\VendorRepository.cs" />
     <Compile Include="Modules\MVendor\VendorService.cs" />
     <Compile Include="Modules\MVendor\VendorValidator.cs" />
+    <Compile Include="NewFolder1\category.cs" />
+    <Compile Include="NewFolder1\Model1.cs" />
+    <Compile Include="NewFolder1\Organization.cs" />
+    <Compile Include="NewFolder1\product.cs" />
+    <Compile Include="NewFolder1\RFQuotationDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

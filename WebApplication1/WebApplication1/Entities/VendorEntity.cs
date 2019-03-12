@@ -7,23 +7,34 @@ namespace WebApplication1.Entities
 {
     public class VendorEntity : BaseEntity
     {
-        public Guid id { get; set; }
-        public string name { get; set; }
-        public string taxcode { get; set; }
-        public string owner { get; set; }
-        public string phone { get; set; }
-        public string email { get; set; }
-        public string website { get; set; }
-        public string bankaccount { get; set; }
-        public string bank { get; set; }
-        public string bankBranch { get; set; }
-        public bool? islock { get; set; }
-        public bool? approved { get; set; }
+        public Guid Id { get; set; }
+        
+        public string Name { get; set; }
+        
+        public string Address { get; set; }
+        
+        public string TaxCode { get; set; }
+        
+        public string Owner { get; set; }
+        
+        public string Phone { get; set; }
+        
+        public string Email { get; set; }
+        
+        public string Website { get; set; }
+        
+        public string BankAccount { get; set; }
+        
+        public string Bank { get; set; }
+        
+        public string BankBranch { get; set; }
+
+        public bool? IsLock { get; set; }
+
+        public bool? Approved { get; set; }
     }
     public partial class VendorSearchEntity : FilterEntity
     {
         public Guid? id { get; set; }
-        public string name { get; set; }
-
     }
 }

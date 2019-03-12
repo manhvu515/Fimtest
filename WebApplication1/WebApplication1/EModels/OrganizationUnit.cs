@@ -6,12 +6,12 @@ using WebApplication1.Entities;
 
 namespace WebApplication1.Models
 {
-    public partial class QuotationHeader : Base
+    public partial class OrganizationUnit : Base
     {
         internal override string _Id => this.Id.ToString();
-        public QuotationHeader() : base() { }
+        public OrganizationUnit() : base() { }
 
-        public QuotationHeader(QuotationHeaderEntity QuotationHeaderEntity) : base(QuotationHeaderEntity)
+        public OrganizationUnit(OrganizationUnitEntity OrganizationUnitEntity) : base(OrganizationUnitEntity)
         {
         }
     }
